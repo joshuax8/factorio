@@ -28,7 +28,7 @@ COPY root /
 RUN \
     set -x \
     && addgroup -gid $PGID factorio \
-    && adduser -D -G factorio -u $PUID factorio \
+    && adduser --disabled-login --ingroup factorio --uid $PUID factorio \
     && apt-get update && apt-get install -y curl tar xz \
     && curl -sSL https://www.factorio.com/get-download/$VERSION/headless/linux64 -o /tmp/factorio_headless_x64_$VERSION.tar.xz \
     && tar -xJf /tmp/factorio_headless_x64_$VERSION.tar.xz -C /opt \
