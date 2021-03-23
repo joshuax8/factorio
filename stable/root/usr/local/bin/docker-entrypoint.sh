@@ -3,8 +3,8 @@
 # Init script for Factorio headless server Docker container
 # License: Apache-2.0
 # Github: https://github.com/goofball222/factorio
-SCRIPT_VERSION="1.3.0"
-# Last updated date: 2021-01-29
+SCRIPT_VERSION="1.3.1"
+# Last updated date: 2021-03-23
 
 set -Eeuo pipefail
 
