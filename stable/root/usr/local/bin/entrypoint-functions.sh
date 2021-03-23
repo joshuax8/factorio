@@ -159,7 +159,7 @@ f_setup() {
         if [ ! -z "${FACTORIO_SCENARIO}" ]; then
             FACTORIO_OPTS="${FACTORIO_OPTS} --start-server-load-scenario ${FACTORIO_SCENARIO} --server-settings ${CONFIGDIR}/server-settings.json --server-id ${CONFIGDIR}/server-id.json"
         else
-            sudo -u factorio:factorio ${FACTORIO} --create ${VOLSAVEDIR}/save.zip --map-gen-settings ${CONFIGDIR}/map-gen-settings.json
+            sudo -u factorio ${FACTORIO} --create ${VOLSAVEDIR}/save.zip --map-gen-settings ${CONFIGDIR}/map-gen-settings.json
             f_load_save
         fi
     else
