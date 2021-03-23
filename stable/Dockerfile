@@ -29,7 +29,7 @@ RUN \
     set -x \
     && addgroup -gid $PGID factorio \
     && adduser --disabled-login --ingroup factorio --uid $PUID factorio \
-    && apt-get update && apt-get install -y curl tar xz-utils \
+    && apt-get update && apt-get install -y curl tar xz-utils sudo \
     && curl -sSL https://www.factorio.com/get-download/$VERSION/headless/linux64 -o /tmp/factorio_headless_x64_$VERSION.tar.xz \
     && tar -xJf /tmp/factorio_headless_x64_$VERSION.tar.xz -C /opt \
     && bash -c 'mkdir -p {/factorio,/factorio/config,/factorio/mods,/factorio/saves,/factorio/scenarios}' \
