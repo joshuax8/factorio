@@ -3,8 +3,8 @@
 # entrypoint-functions.sh script for Factorio headless server Docker container
 # License: Apache-2.0
 # Github: https://github.com/goofball222/factorio
-ENTRYPOINT_FUNCTIONS_VERSION="1.0.1"
-# Last updated date: 2021-01-29
+ENTRYPOINT_FUNCTIONS_VERSION="1.0.2"
+# Last updated date: 2021-03-23
 
 f_chkdir() {
     # Make sure required directories exist in ${VOLDIR} - IE: new install with empty volume on host mapped over default volume
