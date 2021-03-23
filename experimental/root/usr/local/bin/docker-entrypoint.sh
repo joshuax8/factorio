@@ -74,10 +74,10 @@ if [ "$(id -u)" = '0' ]; then
             exec ${FACTORIO} ${FACTORIO_OPTS} &
             f_idle_handler
         else
-            f_log "INFO - Use su-exec to drop priveleges and start Factorio Headless as GID=${PGID}, UID=${PUID}"
-            f_log "EXEC - su-exec factorio:factorio ${FACTORIO} ${FACTORIO_OPTS}"
+            f_log "INFO - Use sudo to drop priveleges and start Factorio Headless as GID=${PGID}, UID=${PUID}"
+            f_log "EXEC - sudo -u factorio ${FACTORIO} ${FACTORIO_OPTS}"
             exec 0<&-
-            exec su-exec factorio:factorio ${FACTORIO} ${FACTORIO_OPTS} &
+            exec sudo -u factorio ${FACTORIO} ${FACTORIO_OPTS} &
             f_idle_handler
         fi
     else
