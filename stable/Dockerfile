@@ -27,7 +27,6 @@ COPY root /
 
 RUN \
     set -x \
-    && delgroup ping \
     && addgroup -g $PGID factorio \
     && adduser -D -G factorio -u $PUID factorio \
     && apt-get update && apt-get install -y curl tar xz \
