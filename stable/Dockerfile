@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-glibc:latest
+FROM ubuntu
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -30,10 +30,7 @@ RUN \
     && delgroup ping \
     && addgroup -g $PGID factorio \
     && adduser -D -G factorio -u $PUID factorio \
-    && apk add -q --no-cache --virtual .build-deps \
-        curl \
-    && apk add -q --no-cache \
-        bash curl shadow su-exec tzdata \
+    && apt-get update && apt-get install -y curl tar xz \
     && curl -sSL https://www.factorio.com/get-download/$VERSION/headless/linux64 -o /tmp/factorio_headless_x64_$VERSION.tar.xz \
     && tar -xJf /tmp/factorio_headless_x64_$VERSION.tar.xz -C /opt \
     && bash -c 'mkdir -p {/factorio,/factorio/config,/factorio/mods,/factorio/saves,/factorio/scenarios}' \
@@ -42,7 +39,6 @@ RUN \
     && ln -s /factorio/saves /opt/factorio/saves \
     && ln -s /factorio/scenarios /opt/factorio/scenarios \
     && chown -R factorio:factorio /opt/factorio /factorio \
-    && apk del -q --purge .build-deps \
     && rm -rf /tmp/* /var/cache/apk/*
 
 EXPOSE 34197/udp 27015/tcp
